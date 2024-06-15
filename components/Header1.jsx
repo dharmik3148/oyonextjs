@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Block from "./Block";
+import Link from "next/link";
 
 const Header1 = () => {
   return (
@@ -27,7 +28,9 @@ const Header1 = () => {
             height={200}
             className="w-11 h-11 p-2  mr-2"
           />
-          <h3>Login / Signup</h3>
+          <Link href={"/login"}>
+            <h3>Login / Signup</h3>
+          </Link>
         </div>
       </div>
     </div>

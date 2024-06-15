@@ -17,7 +17,6 @@ const Home = () => {
           name="description"
           content="India's best online hotel booking site for sanitized stay"
         />
-        <link rel="shortcut icon" href="/icon.png" type="image/x-icon" />
       </Head>
       <Header1 />
       <Header2 />
