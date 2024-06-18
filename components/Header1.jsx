@@ -5,13 +5,15 @@ import Link from "next/link";
 const Header1 = () => {
   return (
     <div className="flex justify-between border-b-2 border-gray-300 items-center h-20 px-10">
-      <Image
-        src={"/logo.png"}
-        alt="logo"
-        width={150}
-        height={150}
-        className="w-20 h-full"
-      />
+      <Link href={"/"}>
+        <Image
+          src={"/logo.png"}
+          alt="logo"
+          width={150}
+          height={150}
+          className="w-20 h-full"
+        />
+      </Link>
       <div className=" h-full flex">
         <Block title={"Become a member"} para={"Additional 10% off on stays"} />
         <Block title={"Oyo for business"} para={"trusted by 5000 corporates"} />

@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 const Header3 = () => {
   return (
     <div className="bg-gradient-to-r from-[#FF416C] to-[#FF4B2B] h-60">
@@ -25,9 +27,14 @@ const Header3 = () => {
           />
           <button
             type="submit"
-            className="h-16 px-3 py-2 col-span-1 bg-green-600 hover:cursor-pointer hover:bg-green-700 text-white text-xl font-bold"
+            className="flex h-16 col-span-1 bg-green-600 hover:cursor-pointer hover:bg-green-700 text-white text-xl font-bold"
           >
-            Search
+            <Link
+              href={"/hotels"}
+              className="h-full w-full flex justify-center items-center"
+            >
+              Search
+            </Link>
           </button>
         </div>
         <div className="flex mx-20 my-5 font-bold">
