@@ -1,8 +1,21 @@
 import Image from "next/image";
 import Block from "./Block";
 import Link from "next/link";
+import Cookies from "js-cookie";
+import { Router, useRouter } from "next/router";
 
 const Header1 = () => {
+  let auth;
+  const router = useRouter();
+  if (typeof window !== "undefined") {
+    auth = Cookies.get("user");
+  }
+
+  const handleLogout = () => {
+    Cookies.remove("user");
+    router.push("/");
+  };
+
   return (
     <div className="flex justify-between border-b-2 border-gray-300 items-center h-20 px-10">
       <Link href={"/"}>
@@ -30,9 +43,15 @@ const Header1 = () => {
             height={200}
             className="w-11 h-11 p-2  mr-2"
           />
-          <Link href={"/login"}>
-            <h3>Login / Signup</h3>
-          </Link>
+          {auth ? (
+            <h3 onClick={handleLogout} className="hover:cursor-pointer">
+              Logout
+            </h3>
+          ) : (
+            <Link href={"/login"}>
+              <h3>Login / Signup</h3>
+            </Link>
+          )}
         </div>
       </div>
     </div>

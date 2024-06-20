@@ -29,6 +29,7 @@ const Home = () => {
             width={200}
             height={200}
             className="h-50 w-full my-[60px]"
+            priority
           />
           <Image
             src={"/banner2.avif"}

@@ -15,7 +15,7 @@ export default async function handler(req, res) {
 
     const emailExist = await User.findOne({ email });
     if (!emailExist) {
-      return res.send(400).json({ msg: "Please register first" });
+      return res.status(400).json({ msg: "Please register first" });
     }
 
     const pwd = await matchPassword(password, emailExist.password);
