@@ -1,18 +1,27 @@
+"use client";
+
 import Image from "next/image";
 import Block from "./Block";
 import Link from "next/link";
 import Cookies from "js-cookie";
-import { Router, useRouter } from "next/router";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
 const Header1 = () => {
-  let auth;
+  const [auth, setAuth] = useState(false);
+
+  useEffect(() => {
+    const isAuth = Cookies.get("user");
+    if (isAuth) {
+      setAuth(true);
+    }
+  }, []);
+
   const router = useRouter();
-  if (typeof window !== "undefined") {
-    auth = Cookies.get("user");
-  }
 
   const handleLogout = () => {
     Cookies.remove("user");
+    setAuth(false);
     router.push("/");
   };
 
