@@ -1,8 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import { useState } from "react";
 
 const Header3 = () => {
+  const [city, setCity] = useState("");
+
   return (
     <div className="bg-gradient-to-r from-[#FF416C] to-[#FF4B2B] h-60">
       <div className="p-5">
@@ -12,16 +15,17 @@ const Header3 = () => {
         <div className="grid grid-cols-5 my-5 mx-20">
           <input
             type="text"
-            placeholder="Search..."
+            placeholder="City..."
             className="h-16 outline-none px-3 text-lg border-r-2 border-gray-400 col-span-2"
+            onChange={(e) => setCity(e.target.value)}
           />
           <input
-            type="text"
+            type="date"
             placeholder="Search..."
             className="h-16 outline-none px-3 text-lg border-r-2 border-gray-400 col-span-1"
           />
           <input
-            type="text"
+            type="date"
             placeholder="Search..."
             className="h-16 outline-none px-3 text-lg col-span-1"
           />
@@ -30,7 +34,7 @@ const Header3 = () => {
             className="flex h-16 col-span-1 bg-green-600 hover:cursor-pointer hover:bg-green-700 text-white text-xl font-bold"
           >
             <Link
-              href={"/hotels"}
+              href={`/hotels?city=${city}`}
               className="h-full w-full flex justify-center items-center"
             >
               Search

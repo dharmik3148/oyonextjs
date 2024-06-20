@@ -8,6 +8,16 @@ const nextConfig = {
         hostname: "thumbs.dreamstime.com",
         pathname: "**",
       },
+      {
+        protocol: "https",
+        hostname: "images.oyoroomscdn.com",
+        pathname: "**",
+      },
+      {
+        protocol: "https",
+        hostname: "cdn-icons-png.flaticon.com",
+        pathname: "**",
+      },
     ],
   },
 };
