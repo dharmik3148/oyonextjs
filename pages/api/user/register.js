@@ -25,7 +25,11 @@ export default async function handler(req, res) {
 
     const result = await newUser.save();
 
-    const genToken = await signJwtToken(result._id, "Code_DK", "30d");
+    const genToken = await signJwtToken(
+      result._id,
+      process.env.JWT_SECRET,
+      "30d"
+    );
 
     res
       .status(200)

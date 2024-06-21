@@ -14,8 +14,10 @@ const Header1 = () => {
     const isAuth = Cookies.get("user");
     if (isAuth) {
       setAuth(true);
+      return;
     }
-  }, []);
+    setAuth(false);
+  }, [auth]);
 
   const router = useRouter();
 

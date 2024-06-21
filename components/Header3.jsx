@@ -16,10 +16,10 @@ const Header3 = () => {
           <input
             type="text"
             placeholder="City..."
-            className="h-16 outline-none px-3 text-lg border-r-2 border-gray-400 col-span-2"
+            className="h-16 outline-none px-3 text-lg border-r-2 border-gray-400 col-span-4"
             onChange={(e) => setCity(e.target.value)}
           />
-          <input
+          {/* <input
             type="date"
             placeholder="Search..."
             className="h-16 outline-none px-3 text-lg border-r-2 border-gray-400 col-span-1"
@@ -28,7 +28,7 @@ const Header3 = () => {
             type="date"
             placeholder="Search..."
             className="h-16 outline-none px-3 text-lg col-span-1"
-          />
+          /> */}
           <button
             type="submit"
             className="flex h-16 col-span-1 bg-green-600 hover:cursor-pointer hover:bg-green-700 text-white text-xl font-bold"

@@ -24,9 +24,10 @@ const Login = () => {
       .catch((e) => console.log(e.response.data));
 
     if (res?.data) {
-      Cookies.set("user", res.data.token);
+      Cookies.set("user", res.data.token, { expires: 7 });
       alert(res.data.msg);
-      router.push("/");
+      // router.push("/");
+      router.back();
     }
   };
 
@@ -43,7 +44,7 @@ const Login = () => {
       .catch((e) => console.log(e.response.data));
 
     if (res?.data) {
-      Cookies.set("user", res.data.token);
+      Cookies.set("user", res.data.token, { expires: 7 });
       alert(res.data.msg);
       router.push("/");
     }

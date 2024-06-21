@@ -24,7 +24,11 @@ export default async function handler(req, res) {
       return res.status(400).json({ msg: "Invalid credentials" });
     }
 
-    const genToken = await signJwtToken(emailExist._id, "Code_DK", "30d");
+    const genToken = await signJwtToken(
+      emailExist._id,
+      process.env.JWT_SECRET,
+      "30d"
+    );
 
     res.status(200).json({ msg: "User logged in", token: genToken });
   }

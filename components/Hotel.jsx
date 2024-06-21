@@ -15,9 +15,9 @@ const Hotel = ({ e }) => {
             alt="hotel"
             width={200}
             height={200}
-            className="w-96 h-60 mr-3 rounded-[6px]"
+            className="w-80 h-40 mr-3 rounded-[6px]"
           />
-          <div className="grid grid-rows-3 gap-2">
+          <div className="flex flex-col gap-3">
             {e?.gallary.map((item, id) => {
               return (
                 <Image
@@ -25,7 +25,7 @@ const Hotel = ({ e }) => {
                   alt={`hotel/${id}`}
                   width={200}
                   height={200}
-                  className="w-28"
+                  className="w-50"
                   key={id}
                 />
               );

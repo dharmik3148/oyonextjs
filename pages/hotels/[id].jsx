@@ -1,8 +1,24 @@
+"use client";
+
 import Header1 from "@/components/Header1";
+import Cookies from "js-cookie";
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const SingleHotel = ({ hotel }) => {
+  const [auth, setAuth] = useState(false);
+
+  useEffect(() => {
+    const isAuth = Cookies.get("user");
+    if (isAuth) {
+      setAuth(true);
+      return;
+    }
+    setAuth(false);
+  }, [auth]);
+
   return (
     <>
       <Head>
@@ -43,9 +59,21 @@ const SingleHotel = ({ hotel }) => {
                 })
               : ""}
           </ul>
-          <button className="w-60 h-14 rounded-lg bg-red-400 hover:bg-red-500 font-semibold my-5 text-lg">
-            Book Now
-          </button>
+          {auth ? (
+            <Link href={`/payment/${hotel?._id}`}>
+              <button className="w-60 h-14 rounded-lg bg-red-400 hover:bg-red-500 font-semibold my-5 text-lg">
+                Book Now
+              </button>
+            </Link>
+          ) : (
+            <span className="text-xl">
+              Please
+              <Link href={"/login"} className="text-blue-500">
+                Login
+              </Link>
+              to get new offers !
+            </span>
+          )}
         </div>
       </div>
     </>
@@ -53,7 +81,7 @@ const SingleHotel = ({ hotel }) => {
 };
 
 export async function getServerSideProps(ctx) {
-  const res = await fetch(`http://localhost:3000/api/hotels/${ctx.query.id}`);
+  const res = await fetch(`${process.env.BASE_URL}/api/hotels/${ctx.query.id}`);
   const data = await res.json();
   return {
     props: {
